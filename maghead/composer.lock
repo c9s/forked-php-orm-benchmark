@@ -354,12 +354,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/c9s/SQLBuilder.git",
-                "reference": "490013355402197db08c8464bda84568604cb3fd"
+                "reference": "8d29a7cead62c64a3b09ef94e2d275f33867e2a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/c9s/SQLBuilder/zipball/490013355402197db08c8464bda84568604cb3fd",
-                "reference": "490013355402197db08c8464bda84568604cb3fd",
+                "url": "https://api.github.com/repos/c9s/SQLBuilder/zipball/8d29a7cead62c64a3b09ef94e2d275f33867e2a4",
+                "reference": "8d29a7cead62c64a3b09ef94e2d275f33867e2a4",
                 "shasum": ""
             },
             "require-dev": {
@@ -387,7 +387,7 @@
                 }
             ],
             "description": "Fast and Powerful SQLBuilder for PHP",
-            "time": "2017-01-24 05:01:11"
+            "time": "2017-02-05 05:11:59"
         },
         {
             "name": "corneltek/universal",
@@ -585,12 +585,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/maghead/maghead.git",
-                "reference": "ca0a6733dff53ec7d7cf5ac50ba38659e118932c"
+                "reference": "98805d7ae98bac84931e0a963f3613f685cced4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maghead/maghead/zipball/ca0a6733dff53ec7d7cf5ac50ba38659e118932c",
-                "reference": "ca0a6733dff53ec7d7cf5ac50ba38659e118932c",
+                "url": "https://api.github.com/repos/maghead/maghead/zipball/98805d7ae98bac84931e0a963f3613f685cced4d",
+                "reference": "98805d7ae98bac84931e0a963f3613f685cced4d",
                 "shasum": ""
             },
             "require": {
@@ -649,7 +649,7 @@
                 "orm",
                 "sql"
             ],
-            "time": "2017-01-25 06:58:51"
+            "time": "2017-02-03 15:27:00"
         },
         {
             "name": "phpcollection/phpcollection",

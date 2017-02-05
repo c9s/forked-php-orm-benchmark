@@ -2,13 +2,15 @@
 
 require_once dirname(__FILE__) . '/../AbstractTestSuite.php';
 
-use Maghead\ConnectionManager;
+use Maghead\Manager\ConnectionManager;
 use Maghead\SqlBuilder\SqlBuilder;
-use Maghead\BaseModel;
+use Maghead\Runtime\BaseModel;
+use Maghead\Runtime\BaseCollection;
 use Maghead\ConfigLoader;
+use Maghead\Config;
+use Maghead\Bootstrap;
 use Maghead\Schema\SchemaGenerator;
 use Maghead\Schema\DeclareSchema;
-use Maghead\BaseCollection;
 use Maghead\Result;
 use Maghead\PDOExceptionPrinter;
 use SQLBuilder\Driver\BaseDriver;
@@ -33,8 +35,7 @@ class MagheadTestSuite extends AbstractTestSuite
     {
         $loader = require_once "vendor/autoload.php";
 
-        $this->config = ConfigLoader::getInstance();
-        $this->config->loadFromArray([
+        $this->config = ConfigLoader::loadFromArray([
             'data_source' => [
                 'default' => 'master',
                 'nodes' => [
@@ -45,10 +46,12 @@ class MagheadTestSuite extends AbstractTestSuite
                 ],
             ],
         ]);
-        $this->config->init();
         $loader->addPsr4('AuthorBooks\\Model\\', __DIR__ . '/Model/');
 
-        $this->con = ConnectionManager::getInstance()->getConnection('master');
+        $connectionManager = ConnectionManager::getInstance();
+        Bootstrap::setup($this->config, true);
+
+        $this->con = $connectionManager->getConnection('master');
         $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->initTables();
 
@@ -103,7 +106,7 @@ class MagheadTestSuite extends AbstractTestSuite
             ->greaterThan('id', $this->authors[array_rand($this->authors)]->id)
             ->or()
             ->equal('(first_name || last_name)', 'John Doe');
-        $authors->queryCount();
+        $authors->count();
 	}
 
 	function runHydrate($i)
